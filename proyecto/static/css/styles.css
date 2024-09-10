@@ -1,0 +1,79 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 60px; 
+
+}
+
+navbar {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #333; 
+  padding: 10px 0; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; /* Asegura que el navbar ocupe todo el ancho de la pantalla */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para un efecto flotante */
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+  overflow: hidden; /* Evita el desbordamiento de contenido */
+}
+
+/* Contenedor del navbar para manejar el alineamiento */
+.navbar-container {
+  display: flex;
+  justify-content: center; /* Centra los elementos dentro del contenedor del navbar */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho de la pantalla */
+}
+
+/* Estilo de los botones dentro del navbar */
+.navbar-container button {
+  background: none; /* Sin fondo en los botones */
+  border: none; /* Sin borde en los botones */
+  margin: 0 10px; /* Espaciado horizontal entre los botones */
+}
+
+/* Estilo de los enlaces dentro del navbar */
+.navbar-container a {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: white; /* Color del texto de los enlaces */
+  font-size: 16px; /* Tamaño de fuente */
+  padding: 10px 15px; /* Espaciado dentro del enlace */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para los efectos de hover */
+  display: block; /* Asegura que el padding se aplique correctamente */
+}
+
+/* Estilo para el efecto hover en los enlaces del navbar */
+.navbar-container a:hover {
+  background-color: #575757; /* Color de fondo al pasar el ratón sobre el enlace */
+  color: #fff; /* Color del texto al pasar el ratón sobre el enlace */
+  border-radius: 4px; /* Bordes redondeados en los enlaces al pasar el ratón */
+}
+
+.parrafo{
+  margin-left: 300px;
+  margin-right: 300px;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  font-size: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  border:none;
+  background-color: #333;
+
+}
+button{
+  background-color: #333;
+  color: white;
+}
+.footer{
+  color: red;
+}

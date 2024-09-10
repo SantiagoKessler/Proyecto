@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block header %}
+   Registra a tu Atleta
+{% endblock header %}
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Enviar</button>
+    </form>
+    <button><a href="{% url 'atletas:index' %}">Volver</a></button>
+
+{% endblock main %}
+   

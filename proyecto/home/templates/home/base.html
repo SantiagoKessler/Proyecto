@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi sitio{% endblock %}</title>
+   
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body style="display: grid;justify-items: center;align-items: center;height: 100vh;">
+    <header>
+        <h1>
+            {% include 'home/componentes/navbar.html' %}
+            {% block  header %}
+            {% endblock header %}
+        </h1>  
+        
+    <main>
+        {% block main %} 
+        {% endblock main %}
+    </main>
+    <footer>
+        {% include 'home/componentes/footer.html' %}
+    </footer>
+</body>
+</html>
+
