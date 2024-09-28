@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+{% block header %}
+<div class="bg-dark text-white text-center py-5">
+    <h1> Vista en detalle del producto</h1>
+</div>
+{% endblock header %}
+{% block main %}
+<section class="container mb-4">
+    <ul class="list-group">
+        <li class="list-group-item">Nombre: {{object.nombre}}</li>
+        <li class="list-group-item">Descripcion: {{object.descripcion}}</li>
+    </ul>
+</section>
+    <div class="text-center">
+        <button class="btn btn-secondary"><a class="text-white text-decoration-none" href="{% url 'productos:productocategoria_list' %}">Volver</a></button>
+    </div>
+{% endblock main  %}
+    

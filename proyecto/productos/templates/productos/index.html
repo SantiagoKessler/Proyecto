@@ -1,13 +1,21 @@
 {% extends 'home/base.html' %}
 {% block header %}
-    PRODUCTOS
+    <div class="bg-dark text-white text-center py-5">
+      <h1>PRODUCTOS</h1>
+    </div>
 {% endblock header %}
-  {% block main %}
-  
-    <button><a href="{% url 'productos:productocategoria_list' %}">Listar Categorias de Productos</a></button>
-    <button><a href="{% url 'productos:productocategoria_create' %}">Crear Categorias de Productos</a></button>
-   
-  {% endblock main %}
+{% block main %}
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+          <div class="col-md-4 mb-3">
+              <a href="{% url 'productos:productocategoria_list' %}"class="btn btn-success btn-block">Lista Productos</a>
+          </div>
+          <div class="col-md-4 mb-3">
+              <a href="{% url 'productos:productocategoria_create' %}" class="btn btn-dark btn-block">Crear Productos</a>
+          </div>
+      </div>
+    </div> 
+{% endblock main %}
    
     
    

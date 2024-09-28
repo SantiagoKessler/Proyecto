@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+{% block header %}
+<div class="bg-dark text-white text-center py-5">
+    <h1 class="text-center mb-4">Asignar Plan</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2 class="text-success">Atleta: {{ atleta.nombre }}</h2>
+    <p class="fs-5">Descripción: {{ atleta.velocidad}}</p>
+    <h4 class="mt-4">Plan Asignado:</h4>
+    <p class="fs-6">{{ plan }}</p>
+    
+    <div class="text-center mt-4">
+        <button class="btn btn-secondary">
+            <a class="text-white text-decoration-none" href="{% url 'atletas:pais_list' %}">Volver a la lista de Atletas</a>
+        </button>
+    </div>
+</div>
+{% endblock main %}
+

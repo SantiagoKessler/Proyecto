@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="bg-dark text-white text-center py-5">
+    <h1>Detalles del Plan</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+<div class="container bg-dark text-light py-4">
+    <h2>{{ plan.entrenamiento }}</h2>
+    <p><strong>Días:</strong> {{ plan.dias }}</p>
+    <p><strong>Horas:</strong> {{ plan.horas }}</p>
+    
+    <a href="{% url 'planes:plan_update' plan.id %}" class="btn btn-secondary">Cambiar</a>
+    <a href="{% url 'planes:plan_delete' plan.id %}" class="btn btn-danger">Eliminar</a>
+    <a href="{% url 'planes:plan_list' %}" class="btn btn-primary">Volver a la lista</a>
+</div>
+{% endblock main %}

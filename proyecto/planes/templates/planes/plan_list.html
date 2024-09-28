@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load static %}  
+
+{% block header %}
+<div class="bg-dark text-white text-center py-5">
+    <h1>Lista de Planes</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+<div class="container bg-dark text-light py-4">  
+    <form action="{% url 'planes:plan_list' %}" method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" placeholder="Buscar..." class="form-control">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button class="btn btn-success">
+                <a href="{% url 'planes:plan_create' %}" class="text-white text-decoration-none">Crear Plan</a>
+            </button>
+        </div>
+    </form>
+
+    <ul class="list-group">
+        {% for plan in planes %}
+            <li class="list-group-item bg-secondary text-light">
+                <strong>Entrenamiento:</strong> {{ plan.entrenamiento }}<br>
+                <strong>Días:</strong> {{ plan.dias }}<br>
+                <strong>Horas:</strong> {{ plan.horas }}
+                <div class="mt-2">
+                    <a class="btn btn-success btn-sm" href="{% url 'planes:plan_detail' plan.id %}">Más datos</a>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'planes:plan_update' plan.id %}">Modificar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'planes:plan_delete' plan.id %}">Eliminar</a>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-center">No hay planes disponibles.</li>
+        {% endfor %}
+    </ul>
+
+    <button class="btn btn-secondary mt-3">
+        <a class="text-white text-decoration-none" href="{% url 'planes:index' %}">Volver</a>
+    </button>
+</div>
+{% endblock main %}

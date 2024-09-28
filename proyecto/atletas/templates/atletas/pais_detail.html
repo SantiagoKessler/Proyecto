@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% block header %}
+<div class="bg-dark text-white text-center py-5">
+    <h1>Datos del Atleta</h1>
+</div>
+    
+{% endblock header %}
+
+{% block main %}
+<section class="container mb-4">
+    <h2 class="text-success">Datos Básicos</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Nombre: {{ object.nombre }}</li>
+        <li class="list-group-item">Apellido: {{ object.apellido }}</li>
+        <li class="list-group-item">Edad: {{ object.edad }}</li>
+        <li class="list-group-item">Peso: {{ object.peso }}</li>
+        <li class="list-group-item">Altura: {{ object.altura }}</li>
+        <li class="list-group-item">Sexo: {{ object.sexo }}</li>
+        <li class="list-group-item">Deporte: {{ object.deporte }}</li>
+    </ul>
+</section>
+
+<section class="container mb-4">
+    <h2 class="text-success">Condición Física</h2>
+    <ul class="list-group">
+        <li class="list-group-item">% de grasa corporal: {{ object.grasa }}</li>
+        <li class="list-group-item">Test de 40 metros: {{ object.velocidad }}</li>
+    </ul>
+</section>
+
+<section class="container mb-4">
+    <h3 class="text-success">Objetivos</h3>
+    <ul class="list-group">
+        <li class="list-group-item">{{ object.descripcion }}</li>
+    </ul>
+</section>
+
+<div class="text-center">
+    
+    <button class="btn btn-secondary">
+        <a class="text-white text-decoration-none" href="{% url 'atletas:pais_list' %}">Volver</a>
+    </button>
+    <button class="btn btn-secondary">
+        <a class="text-white text-decoration-none" href="{% url 'planes:asignar_plan' pais.id %}">Ver Plan</a>
+    </button>
+    
+</div>
+{% endblock main %}

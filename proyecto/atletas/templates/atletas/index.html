@@ -1,18 +1,24 @@
-
 {% extends 'home/base.html' %}
-{% load static %}  <!-- Cargar archivos estáticos -->
+{% load static %}
 
 {% block header %}
-    ATLETAS
+    <div class="bg-dark text-white text-center py-5">
+        <h1>ATLETAS</h1>
+    </div>
 {% endblock header %}
 
 {% block main %}
-
-   <button><a href="{% url 'atletas:pais_create' %}">Registrar Atletas</a></button>
-   <button><a href="{% url 'atletas:pais_list' %}">Lista de Atletas</a></button>  
-   
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <a href="{% url 'atletas:pais_create' %}" class="btn btn-success btn-block">Registrar Atletas</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{% url 'atletas:pais_list' %}" class="btn btn-dark btn-block">Lista de Atletas</a>
+            </div>
+        </div>
+    </div>
 {% endblock main %}
-
 
 
     

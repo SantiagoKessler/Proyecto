@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r6pk7=tf%r=v9@yd(@sc$j_$q1@ybgrl7rz3kuf=@(6a%xqzqv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Santiago1.pythonanywhere.com']
 
 
 # Application definition
@@ -40,7 +42,9 @@ INSTALLED_APPS = [
     'home',
     'atletas',
     'productos',
-    'planes'
+    'planes',
+    'ventas',
+    'widget_tweaks',
     
 ]
 
@@ -130,3 +134,26 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Configuracion de autenticacion
+
+# Configuración de autenticación
+
+# URL de la página de inicio de sesión
+
+LOGIN_URL = reverse_lazy('home:login')
+
+# URL a la que se redirige después de un inicio de sesión exitoso
+
+LOGIN_REDIRECT_URL = reverse_lazy('home:index')
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = BASE_DIR / 'static'
+
+try:
+    from .settings_dev import *
+except ModuleNotFoundError:
+    pass

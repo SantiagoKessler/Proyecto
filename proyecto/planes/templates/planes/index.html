@@ -1,9 +1,21 @@
 {% extends 'home/base.html' %}
-{% block header %}
-    PLANES
-{% endblock header %}
-  {% block main %}
+{% load static %}
 
-    
-  {% endblock main %}
-   
+{% block header %}
+    <div class="bg-dark text-white text-center py-5">
+        <h1>PLANES</h1>
+    </div>
+{% endblock header %}
+
+{% block main %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <a href="{% url 'planes:plan_create' %}" class="btn btn-success btn-block">Crear Plan</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{% url 'planes:plan_list' %}" class="btn btn-dark btn-block">Lista de Planes</a>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

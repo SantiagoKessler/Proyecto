@@ -1,4 +1,4 @@
-
+/* 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -46,11 +46,11 @@ navbar {
 }
 
 /* Estilo para el efecto hover en los enlaces del navbar */
-.navbar-container a:hover {
+/* .navbar-container a:hover {
   background-color: #575757; /* Color de fondo al pasar el ratón sobre el enlace */
-  color: #fff; /* Color del texto al pasar el ratón sobre el enlace */
-  border-radius: 4px; /* Bordes redondeados en los enlaces al pasar el ratón */
-}
+  /* color: #fff; Color del texto al pasar el ratón sobre el enlace */
+  /* border-radius: 4px;  Bordes redondeados en los enlaces al pasar el ratón */ */
+} */
 
 .parrafo{
   margin-left: 300px;
@@ -62,7 +62,7 @@ h1{
   text-align: center;
   font-size: 60px;
 }
-
+/*  */
 a {
   text-decoration: none;
   color: white;
@@ -74,6 +74,9 @@ button{
   background-color: #333;
   color: white;
 }
-.footer{
-  color: red;
-}
+
+
+a.lista{
+  background-color: transparent;
+  color: #333;
+} */

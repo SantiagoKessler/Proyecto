@@ -1,9 +1,34 @@
-<navbar>
-  <div class="navbar-container">
-      <button><a href="{% url 'home:index' %}">🏠Home</a></button>  
-      <button><a href="{% url 'atletas:index' %}">Atletas</a></button>
-      <button><a href="{% url 'planes:index' %}">Planes</a></button> 
-      <button><a href="{% url 'productos:index' %}">Productos</a></button> 
-      
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container px-5">
+      <a class="navbar-brand" href="{% url 'home:index' %}">NEXUS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="{% url 'home:index' %}">🏠Home</a></li>
+              {% if user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'atletas:index' %}">Atletas</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'planes:index' %}">Planes</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'productos:index' %}">Productos</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'home:profile' %}">{{ user.username }}</a></li>
+                  {% if user.vendedor.avatar %}
+                  <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 30px;">
+                  {% else %}
+                  <img src="" alt="avatar" style="height: 30px;"> 
+                  {% endif %}
+              <li class="nav-item">
+                <form action="{% url 'home:logout' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button class="btn nav-link" type="submit">Logout</button>
+                </form>
+              </li>
+              {% else %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'home:login' %}">Login</a></li>
+              {% endif %}
+          </ul>
+      </div>
   </div>
-</navbar>
+</nav>
+
+

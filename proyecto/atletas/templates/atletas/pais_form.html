@@ -1,0 +1,75 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block header %}
+  {% if form.instance.pk %}
+      <div class="bg-dark text-white text-center py-5">
+        <h1>Actualizar Atleta</h1>
+      </div>
+  {% else %}
+      <div class="bg-dark text-white text-center py-5">
+        <h1>Registrar Atleta</h1>
+      </div>
+  {% endif %}
+{% endblock header %}
+
+{% block main %}
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <h2 class="mt-4">Datos Básicos</h2>
+      <div class="mb-3">
+        <label for="id_nombre" class="form-label fs-5">Nombre</label>
+        {{ form.nombre|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_apellido" class="form-label fs-5">Apellido</label>
+        {{ form.apellido|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_edad" class="form-label fs-5">Edad</label>
+        {{ form.edad|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_peso" class="form-label fs-5">Peso</label>
+        {{ form.peso|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_altura" class="form-label fs-5">Altura</label>
+        {{ form.altura|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_sexo" class="form-label fs-5">Sexo</label>
+        {{ form.sexo|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_deporte" class="form-label fs-5">Deporte</label>
+        {{ form.deporte|add_class:"form-control" }}
+      </div>
+      
+
+      <h2 class="mt-4">Condición Física</h2>
+      <div class="mb-3">
+        <label for="id_grasa" class="form-label fs-5">% de grasa corporal</label>
+        {{ form.grasa|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        <label for="id_velocidad" class="form-label fs-5">Test en 40 metros</label>
+        {{ form.velocidad|add_class:"form-control" }}
+      </div>
+
+      <h3 class="mt-4">Objetivos</h3>
+      <div class="mb-3">
+        <label for="id_descripcion" class="form-label fs-5">Descripción</label>
+        {{ form.descripcion|add_class:"form-control" }}
+      </div>
+
+      <button type="submit" class="btn btn-primary fs-5">Enviar</button>
+    </form>
+
+    <button class="btn btn-secondary mt-3">
+      <a class="text-white text-decoration-none fs-5" href="{% url 'atletas:index' %}">Volver</a>
+    </button>
+      
+{% endblock main %}

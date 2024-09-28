@@ -1,0 +1,33 @@
+{% extends 'home/base.html' %}
+{% load widget_tweaks %}
+
+{% block header %}
+    {% if form.instance.pk %}
+        <div class="bg-dark text-white text-center py-5">
+            <h1> Actualizar producto</h1>
+        </div>
+    {% else %}
+        <div class="bg-dark text-white text-center py-5">
+            <h1> Crear nuevo producto</h1>
+        </div>
+    {% endif %}
+{% endblock header %}
+{% block main %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_nombre" class="form-label fs-5">Nombre</label>
+            {{ form.nombre|add_class:"form-control" }}
+          </div>
+        <div class="mb-3">
+            <label for="id_descripcion" class="form-label fs-5">Descripción</label>
+            {{ form.descripcion|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary fs-5">Enviar</button>
+    </form>
+
+    <button  class="btn btn-secondary mt-3"><a  class="text-white text-decoration-none fs-5" href="{% url 'productos:productocategoria_list' %}">Volver</a></button>
+</div>
+{% endblock main  %}
+    
